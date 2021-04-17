@@ -17,22 +17,3 @@ local realTriggerAddAction = TriggerAddAction
 TriggerAddAction = function(trig, callback)
 	realTriggerAddAction(trig, getHandledCallback(callback))
 end
-
-ErrorHandlingOn = true
-
----@param message string
-function handleHandle(message, handle)
-    if not handle and ErrorHandlingOn then
-        print('ERROR:', message)
-    end
-    return handle
-end
-
--- Работа закончена
-
-local error = 'Работа завершена'
-
-
-
-
-------- добавлены новые строчки
