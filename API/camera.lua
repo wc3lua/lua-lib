@@ -27,14 +27,10 @@ function m.setQuickPosCoords(x, y)
     SetCameraQuickPosition(x, y)
 end
 
----@param p point
-function m.setQuickPosPoint(p)
-    m.setQuickPosCoords(Point.getX(p), Point.getY(p))
-end
-
----@param loc location
-function m.setQuickPosLoc(loc)
-    m.setQuickPosCoords(ModuleLocation.getX(loc), ModuleLocation.getY(loc))
+---@param p Pointable
+function m.setQuickPos(p)
+    local module = Pointable.getModule(p)
+    m.setQuickPosCoords(module.getX(p), module.getY(p))
 end
 
 ---@param x1 real
@@ -45,114 +41,129 @@ end
 ---@param y3 real
 ---@param x4 real
 ---@param y4 real
-function SetCameraBounds(x1, y1, x2, y2, x3, y3, x4, y4) end
+function m.setBoundsCoords(x1, y1, x2, y2, x3, y3, x4, y4)
+    SetCameraBounds(x1, y1, x2, y2, x3, y3, x4, y4)
+end
 
-function StopCamera() end
+---@param p1 Pointable
+---@param p2 Pointable
+---@param p3 Pointable
+---@param p4 Pointable
+function m.setBoundsPos(p1, p2, p3, p4)
+    local m1 = Pointable.getModule(p1)
+    local m2 = Pointable.getModule(p2)
+    local m3 = Pointable.getModule(p3)
+    local m4 = Pointable.getModule(p4)
+    m.setBoundsCoords(m1.getX(p1), m1.getY(p1), m2.getX(p2), m2.getY(p2), m3.getX(p3), m3.getY(p3), m4.getX(p4), m4.getY(p4))
+end
+
+function m.stop()
+    StopCamera()
+end
 
 ---@param duration real
-function ResetToGameCamera(duration) end
+function m.resetToGame(duration)
+    ResetToGameCamera(duration)
+end
 
 ---@param x real
 ---@param y real
-function PanCameraTo(x, y) end
+function m.panToCoords(x, y)
+    PanCameraTo(x, y)
+end
+
+---@param p Pointable
+function m.panToPos(p)
+    local module = Pointable.getModule(p)
+    m.panToCoords(module.getX(p), module.getY(p))
+end
 
 ---@param x real
 ---@param y real
 ---@param duration real
-function PanCameraToTimed(x, y, duration) end
+function m.panToCoordsTimed(x, y, duration)
+    PanCameraToTimed(x, y, duration)
+end
+
+---@param p Pointable
+---@param duration real
+function m.panToPosTimed(p, duration)
+    local module = Pointable.getModule(p)
+    m.panToCoordsTimed(module.getX(p), module.getY(p), duration)
+end
 
 ---@param x real
 ---@param y real
 ---@param zOffsetDest real
-function PanCameraToWithZ(x, y, zOffsetDest) end
+function m.panToCoordsWithZ(x, y, zOffsetDest)
+    PanCameraToWithZ(x, y, zOffsetDest)
+end
+
+---@param p Pointable
+function m.panToPosWithZ(p)
+    local module = Pointable.getModule(p)
+    m.panToCoordsWithZ(module.getX(p), module.getY(p), module.getZ(p))
+end
 
 ---@param x real
 ---@param y real
 ---@param zOffsetDest real
 ---@param duration real
-function PanCameraToTimedWithZ(x, y, zOffsetDest, duration) end
+function m.panToCoordsTimedWithZ(x, y, zOffsetDest, duration)
+    PanCameraToTimedWithZ(x, y, zOffsetDest, duration)
+end
 
----@param cameraModelFile string
-function SetCinematicCamera(cameraModelFile) end
+---@param p Pointable
+---@param duration real
+function m.panToPosTimedWithZ(p, duration)
+    local module = Pointable.getModule(p)
+    m.panToCoordsTimedWithZ(module.getX(p), module.getY(p), module.getZ(p), duration)
+end
 
 ---@param x real
 ---@param y real
 ---@param radiansToSweep real
 ---@param duration real
-function SetCameraRotateMode(x, y, radiansToSweep, duration) end
+function m.setRotateModeCoords(x, y, radiansToSweep, duration)
+    SetCameraRotateMode(x, y, radiansToSweep, duration)
+end
+
+---@param p Pointable
+---@param radiansToSweep real
+---@param duration real
+function m.setRotateModePos(p, radiansToSweep, duration)
+    local module = Pointable.getModule(p)
+    m.setRotateModeCoords(module.getX(p), module.getY(p), radiansToSweep, duration)
+end
 
 ---@param whichField camerafield
 ---@param value real
 ---@param duration real
-function SetCameraField(whichField, value, duration) end
+function m.setField(whichField, value, duration)
+    SetCameraField(whichField, value, duration)
+end
 
 ---@param whichField camerafield
 ---@param offset real
 ---@param duration real
-function AdjustCameraField(whichField, offset, duration) end
+function m.afjustField(whichField, offset, duration)
+    AdjustCameraField(whichField, offset, duration)
+end
 
----@param whichUnit unit
+---@param whichUnit Unit
 ---@param xoffset real
 ---@param yoffset real
 ---@param inheritOrientation boolean
-function SetCameraTargetController(whichUnit, xoffset, yoffset, inheritOrientation) end
+function m.setTargetController(whichUnit, xoffset, yoffset, inheritOrientation)
+    SetCameraTargetController(whichUnit.handle, xoffset, yoffset, inheritOrientation)
+end
 
 ---@param whichUnit unit
 ---@param xoffset real
 ---@param yoffset real
-function SetCameraOrientController(whichUnit, xoffset, yoffset) end
-
-
----@return camerasetup
-function CreateCameraSetup() end
-
----@param whichSetup camerasetup
----@param whichField camerafield
----@param value real
----@param duration real
-function CameraSetupSetField(whichSetup, whichField, value, duration) end
-
----@param whichSetup camerasetup
----@param whichField camerafield
----@return real
-function CameraSetupGetField(whichSetup, whichField) end
-
----@param whichSetup camerasetup
----@param x real
----@param y real
----@param duration real
-function CameraSetupSetDestPosition(whichSetup, x, y, duration) end
-
----@param whichSetup camerasetup
----@return location
-function CameraSetupGetDestPositionLoc(whichSetup) end
-
----@param whichSetup camerasetup
----@return real
-function CameraSetupGetDestPositionX(whichSetup) end
-
----@param whichSetup camerasetup
----@return real
-function CameraSetupGetDestPositionY(whichSetup) end
-
----@param whichSetup camerasetup
----@param doPan boolean
----@param panTimed boolean
-function CameraSetupApply(whichSetup, doPan, panTimed) end
-
----@param whichSetup camerasetup
----@param zDestOffset real
-function CameraSetupApplyWithZ(whichSetup, zDestOffset) end
-
----@param whichSetup camerasetup
----@param doPan boolean
----@param forceDuration real
-function CameraSetupApplyForceDuration(whichSetup, doPan, forceDuration) end
-
----@param whichSetup camerasetup
----@param zDestOffset real
----@param forceDuration real
-function CameraSetupApplyForceDurationWithZ(whichSetup, zDestOffset, forceDuration) end
+function m.setOrientController(whichUnit, xoffset, yoffset)
+    SetCameraOrientController(whichUnit.handle, xoffset, yoffset)
+end
 
 
 ---@param mag real
@@ -220,20 +231,6 @@ function DisplayCineFilter(flag) end
 
 ---@return boolean
 function IsCineFilterDisplayed() end
-
-
----@param portraitUnitId integer
----@param color playercolor
----@param speakerTitle string
----@param text string
----@param sceneDuration real
----@param voiceoverDuration real
-function SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceoverDuration) end
-
-function EndCinematicScene() end
-
----@param flag boolean
-function ForceCinematicSubtitles(flag) end
 
 
 ---@param whichMargin integer

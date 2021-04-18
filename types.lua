@@ -132,7 +132,3 @@
 ---@class RegenType:Handle
 ---@class UnitCategory:Handle
 ---@class PathingFlag:Handle
-
-
-
----@alias Pointable Location|Point

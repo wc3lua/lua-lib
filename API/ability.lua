@@ -9,156 +9,156 @@ function m.setTooltip(abilCode, tooltip, level)
     BlzSetAbilityTooltip(formatIntCC(abilCode), tooltip, level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param tooltip string
 ---@param level integer
 function m.setActivatedTooltip(abilCode, tooltip, level)
     BlzSetAbilityActivatedTooltip(formatIntCC(abilCode), tooltip, level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param extendedTooltip string
 ---@param level integer
 function m.setExtendedTooltip(abilCode, extendedTooltip, level)
     BlzSetAbilityExtendedTooltip(formatIntCC(abilCode), extendedTooltip, level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param researchTooltip string
 ---@param level integer
 function m.setResearchTooltip(abilCode, researchTooltip, level)
     BlzSetAbilityResearchTooltip(formatIntCC(abilCode), researchTooltip, level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param researchExtendedTooltip string
 ---@param level integer
 function m.setResearchExtendedTooltip(abilCode, researchExtendedTooltip, level)
     BlzSetAbilityResearchExtendedTooltip(formatIntCC(abilCode), researchExtendedTooltip, level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param level integer
 ---@return string
 function m.getTooltip(abilCode, level)
     return BlzGetAbilityTooltip(formatIntCC(abilCode), level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param level integer
 ---@return string
 function m.getActivatedTooltip(abilCode, level)
     return BlzGetAbilityActivatedTooltip(formatIntCC(abilCode), level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param level integer
 ---@return string
 function m.getExtendedTooltip(abilCode, level)
     return BlzGetAbilityExtendedTooltip(formatIntCC(abilCode), level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param level integer
 ---@return string
 function m.getActivatedExtendedTooltip(abilCode, level)
     return BlzGetAbilityActivatedExtendedTooltip(formatIntCC(abilCode), level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param level integer
 ---@return string
 function m.getResearchTooltip(abilCode, level)
     return BlzGetAbilityResearchTooltip(formatIntCC(abilCode), level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param level integer
 ---@return string
 function m.getResearchExtendedTooltip(abilCode, level)
     return BlzGetAbilityResearchExtendedTooltip(formatIntCC(abilCode), level)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param iconPath string
 function m.setIcon(abilCode, iconPath)
     BlzSetAbilityIcon(formatIntCC(abilCode), iconPath)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@return string
 function m.getIcon(abilCode)
     return BlzGetAbilityIcon(formatIntCC(abilCode))
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param iconPath string
 function m.setActivatedIcon(abilCode, iconPath)
     BlzSetAbilityActivatedIcon(formatIntCC(abilCode), iconPath)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@return string
 function m.getActivatedIcon(abilCode)
     return BlzGetAbilityActivatedIcon(formatIntCC(abilCode))
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@return integer
 function m.getPosX(abilCode)
     return BlzGetAbilityPosX(formatIntCC(abilCode))
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@return integer
 function m.getPosY(abilCode)
     return BlzGetAbilityPosY(formatIntCC(abilCode))
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param x integer
 function m.setPosX(abilCode, x)
     BlzSetAbilityPosX(formatIntCC(abilCode), x)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param y integer
 function m.setPosY(abilCode, y)
     BlzSetAbilityPosY(formatIntCC(abilCode), y)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@return integer
 function m.getActiavatedPosX(abilCode)
     return BlzGetAbilityActivatedPosX(formatIntCC(abilCode))
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@return integer
 function m.getActivatedPosY(abilCode)
     return BlzGetAbilityActivatedPosY(formatIntCC(abilCode))
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param x integer
 function m.setActivatedPosX(abilCode, x)
     BlzSetAbilityActivatedPosX(formatIntCC(abilCode), x)
 end
 
----@param abilCode integer
+---@param abilCode rawcode
 ---@param y integer
 function m.setActivatedPosY(abilCode, y)
     BlzSetAbilityActivatedPosY(formatIntCC(abilCode), y)
 end
 
----@param abilId integer
+---@param abilId rawcode
 ---@param level integer
 ---@return integer
 function m.getManaCost(abilId, level)
     return BlzGetAbilityManaCost(formatIntCC(abilId), level)
 end
 
----@param abilId integer
+---@param abilId rawcode
 ---@param level integer
 ---@return real
 function m.getCooldown(abilId, level)
@@ -176,8 +176,8 @@ function m.new(ability)
     return Handle.new(ability, m.type)
 end
 
----@param whichAbility ability
----@param whichField abilitybooleanfield
+---@param whichAbility Ability
+---@param whichField AbilityBooleanField
 ---@return boolean
 function m.getBooleanField(whichAbility, whichField)
     return BlzGetAbilityBooleanField(whichAbility.handle, whichField)

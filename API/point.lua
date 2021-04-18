@@ -1,4 +1,11 @@
----@class point
+---@class Point:Type
+
+Types.point = 'point'
+
+---@param arg Type
+function isPoint(arg)
+    return isType(arg, Types.point)
+end
 
 Point = {}
 
@@ -7,75 +14,70 @@ local m = Point
 ---@param x real
 ---@param y real
 ---@param z real
----@return point
-function m.get(x, y, z)
-    return {
-        x = x,
-        y = y,
-        z = z
-    }
+---@return Point
+function m.new(x, y, z)
+    local obj = newType(Types.point)
+    obj.x = x
+    obj.y = y
+    obj.z = z
+    return obj
 end
 
----@param loc location
----@return point
+---@param loc Location
+---@return Point
 function m.fromLoc(loc)
-    return m.get(ModuleLocation.getX(loc), ModuleLocation.getY(loc), ModuleLocation.getZ(loc))
+    return m.new(ModuleLocation.getX(loc), ModuleLocation.getY(loc), ModuleLocation.getZ(loc))
 end
 
----@param whichPoint point
+---@param p Point
 ---@return real
-function m.getX(whichPoint)
-    return whichPoint.x
+function m.getX(p)
+    return p.x
 end
 
----@param whichPoint point
+---@param p Point
 ---@return real
-function m.getY(whichPoint)
-    return whichPoint.y
+function m.getY(p)
+    return p.y
 end
 
----@param whichPoint point
+---@param p Point
 ---@return real
-function m.getZ(whichPoint)
-    return whichPoint.z
+function m.getZ(p)
+    return p.z
 end
 
----@param whichPoint point
+---@param p Point
 ---@param x real
-function m.setX(whichPoint, x)
-    whichPoint.x = x
+function m.setX(p, x)
+    p.x = x
 end
 
----@param whichPoint point
+---@param p Point
 ---@param y real
-function m.setY(whichPoint, y)
-    whichPoint.y = y
+function m.setY(p, y)
+    p.y = y
 end
 
----@param whichPoint point
+---@param p Point
 ---@param z real
-function m.setZ(whichPoint, z)
-    whichPoint.z = z
+function m.setZ(p, z)
+    p.z = z
 end
 
----@param whichPoint point
+---@param p Point
 ---@param x real
 ---@param y real
 ---@param z real
-function m.setFromCoords(whichPoint, x, y, z)
-    m.setX(whichPoint, x)
-    m.setY(whichPoint, y)
-    m.setZ(whichPoint, z)
+function m.moveFromCoords(p, x, y, z)
+    m.setX(p, x)
+    m.setY(p, y)
+    m.setZ(p, z)
 end
 
----@param whichPoint point
----@param whichLoc location
-function m.setFromLoc(whichPoint, whichLoc)
-    m.setFromCoords(whichPoint, ModuleLocation.getX(whichLoc), ModuleLocation.getY(whichLoc), ModuleLocation.getZ(whichLoc))
-end
-
----@param whichPoint point
----@param newPoint point
-function m.setFromPoint(whichPoint, newPoint)
-    m.setFromCoords(whichPoint, m.getX(newPoint), m.getY(newPoint), m.getZ(newPoint))
+---@param p Point
+---@param newP Pointable
+function m.moveFromPos(p, newP)
+    local module = Pointable.getModule(newP)
+    m.moveFromCoords(p, module.getX(newP), module.getY(newP), module.getZ(newP))
 end
