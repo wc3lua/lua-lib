@@ -6,12 +6,15 @@ local m = ModuleLocation
 ---@param y real
 ---@return location
 function m.allocate(x, y)
-    return Location(x, y)
+    return {
+        handle = Location(x, y),
+        __type = 'location'
+    }
 end
 
 ---@param whichLocation location
 function m.remove(whichLocation)
-    RemoveLocation(whichLocation)
+    RemoveLocation(whichLocation.handle)
 end
 
 ---@param whichLocation location

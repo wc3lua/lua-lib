@@ -168,11 +168,19 @@ end
 -- Intanced Object Operations
 -- Ability
 
+---@class Ability:Type
+
+m.type = 'ability'
+
+function m.new(ability)
+    return Handle.new(ability, m.type)
+end
+
 ---@param whichAbility ability
 ---@param whichField abilitybooleanfield
 ---@return boolean
 function m.getBooleanField(whichAbility, whichField)
-    return BlzGetAbilityBooleanField(whichAbility, whichField)
+    return BlzGetAbilityBooleanField(whichAbility.handle, whichField)
 end
 
 ---@param whichAbility ability
