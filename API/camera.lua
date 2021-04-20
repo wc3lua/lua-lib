@@ -57,6 +57,27 @@ function m.setBoundsPos(p1, p2, p3, p4)
     m.setBoundsCoords(m1.getX(p1), m1.getY(p1), m2.getX(p2), m2.getY(p2), m3.getX(p3), m3.getY(p3), m4.getX(p4), m4.getY(p4))
 end
 
+---@param x1 real
+---@param y1 real
+---@param x2 real
+---@param y2 real
+---@param x3 real
+---@param y3 real
+---@param x4 real
+---@param y4 real
+function Camera:setBoundsCoords(x1, y1, x2, y2, x3, y3, x4, y4)
+    SetCameraBounds(x1, y1, x2, y2, x3, y3, x4, y4)
+    return self
+end
+
+---@param p1 Pointable
+---@param p2 Pointable
+---@param p3 Pointable
+---@param p4 Pointable
+function Camera:setBoundsPos(p1, p2, p3, p4)
+    return self:setBoundsCoords(p1:getX(), p1:getY(), p2:getX(), p2:getY(), p3:getX(), p3:getY(), p4:getX(), p4:getY())
+end
+
 function m.stop()
     StopCamera()
 end

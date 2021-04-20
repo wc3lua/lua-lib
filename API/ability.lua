@@ -183,14 +183,14 @@ function m.getBooleanField(whichAbility, whichField)
     return BlzGetAbilityBooleanField(whichAbility.handle, whichField)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerfield
 ---@return integer
 function m.getIntegerField(whichAbility, whichField)
     return BlzGetAbilityIntegerField(whichAbility, whichField)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityrealfield
 ---@return real
 function m.getRealField(whichAbility, whichField)
@@ -198,14 +198,14 @@ function m.getRealField(whichAbility, whichField)
 end
 
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringfield
 ---@return string
 function m.getStringField(whichAbility, whichField)
     return BlzGetAbilityStringField(whichAbility, whichField)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanlevelfield
 ---@param level integer
 ---@return boolean
@@ -213,7 +213,7 @@ function m.getBooleanLevelField(whichAbility, whichField, level)
     return BlzGetAbilityBooleanLevelField(whichAbility, whichField, level)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerlevelfield
 ---@param level integer
 ---@return integer
@@ -221,7 +221,7 @@ function m.getIntegerLevelField(whichAbility, whichField, level)
     return BlzGetAbilityIntegerLevelField(whichAbility, whichField, level)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityreallevelfield
 ---@param level integer
 ---@return real
@@ -229,7 +229,7 @@ function m.getRealLevelField(whichAbility, whichField, level)
     return BlzGetAbilityRealLevelField(whichAbility, whichField, level)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringlevelfield
 ---@param level integer
 ---@return string
@@ -237,7 +237,7 @@ function m.getStringLevelField(whichAbility, whichField, level)
     return BlzGetAbilityStringLevelField(whichAbility, whichField, level)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -246,7 +246,7 @@ function m.getBooleanLevelArrayField(whichAbility, whichField, level, index)
     return BlzGetAbilityBooleanLevelArrayField(whichAbility, whichField, level, index)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerlevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -255,7 +255,7 @@ function m.getIntegerLevelArrayField(whichAbility, whichField, level, index)
     return BlzGetAbilityIntegerLevelArrayField(whichAbility, whichField, level, index)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityreallevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -264,7 +264,7 @@ function m.getRealLevelArrayField(whichAbility, whichField, level, index)
     return BlzGetAbilityRealLevelArrayField(whichAbility, whichField, level, index)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringlevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -273,7 +273,7 @@ function m.getStringLevelArrayField(whichAbility, whichField, level, index)
     return BlzGetAbilityStringLevelArrayField(whichAbility, whichField, level, index)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanfield
 ---@param value boolean
 ---@return boolean
@@ -281,7 +281,7 @@ function m.setBooleanField(whichAbility, whichField, value)
     return BlzSetAbilityBooleanField(whichAbility, whichField, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerfield
 ---@param value integer
 ---@return boolean
@@ -289,7 +289,7 @@ function m.setIntegerField(whichAbility, whichField, value)
     return BlzSetAbilityIntegerField(whichAbility, whichField, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityrealfield
 ---@param value real
 ---@return boolean
@@ -297,7 +297,7 @@ function m.setRealField(whichAbility, whichField, value)
     return BlzSetAbilityRealField(whichAbility, whichField, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringfield
 ---@param value string
 ---@return boolean
@@ -305,7 +305,7 @@ function m.setStringField(whichAbility, whichField, value)
     return BlzSetAbilityStringField(whichAbility, whichField, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanlevelfield
 ---@param level integer
 ---@param value boolean
@@ -314,7 +314,7 @@ function m.setBooleanLevelField(whichAbility, whichField, level, value)
     return BlzSetAbilityBooleanLevelField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerlevelfield
 ---@param level integer
 ---@param value integer
@@ -323,7 +323,7 @@ function m.setIntegerLevelField(whichAbility, whichField, level, value)
     return BlzSetAbilityIntegerLevelField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityreallevelfield
 ---@param level integer
 ---@param value real
@@ -332,7 +332,7 @@ function m.setRealLevelField(whichAbility, whichField, level, value)
     return BlzSetAbilityRealLevelField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringlevelfield
 ---@param level integer
 ---@param value string
@@ -341,7 +341,7 @@ function m.setStringLevelField(whichAbility, whichField, level, value)
     return BlzSetAbilityStringLevelField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -351,7 +351,7 @@ function m.setBooleanLevelArrayField(whichAbility, whichField, level, index, val
     return BlzSetAbilityBooleanLevelArrayField(whichAbility, whichField, level, index, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerlevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -361,7 +361,7 @@ function m.setIntegerLevelArrayField(whichAbility, whichField, level, index, val
     return BlzSetAbilityIntegerLevelArrayField(whichAbility, whichField, level, index, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityreallevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -371,7 +371,7 @@ function m.setRealLevelArrayField(whichAbility, whichField, level, index, value)
     return BlzSetAbilityRealLevelArrayField(whichAbility, whichField, level, index, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringlevelarrayfield
 ---@param level integer
 ---@param index integer
@@ -381,7 +381,7 @@ function m.setStringLevelArrayField(whichAbility, whichField, level, index, valu
     return BlzSetAbilityStringLevelArrayField(whichAbility, whichField, level, index, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param value boolean
@@ -390,7 +390,7 @@ function m.addBooleanLevelArrayField(whichAbility, whichField, level, value)
     return BlzAddAbilityBooleanLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerlevelarrayfield
 ---@param level integer
 ---@param value integer
@@ -399,7 +399,7 @@ function m.addIntegerLevelArrayField(whichAbility, whichField, level, value)
     return BlzAddAbilityIntegerLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityreallevelarrayfield
 ---@param level integer
 ---@param value real
@@ -408,7 +408,7 @@ function m.addRealLevelArrayField(whichAbility, whichField, level, value)
     return BlzAddAbilityRealLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringlevelarrayfield
 ---@param level integer
 ---@param value string
@@ -417,7 +417,7 @@ function m.addStringLevelArrayField(whichAbility, whichField, level, value)
     return BlzAddAbilityStringLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param value boolean
@@ -426,7 +426,7 @@ function m.removeBooleanLevelArrayField(whichAbility, whichField, level, value)
     return BlzRemoveAbilityBooleanLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityintegerlevelarrayfield
 ---@param level integer
 ---@param value integer
@@ -435,7 +435,7 @@ function m.removeIntegerLevelArrayField(whichAbility, whichField, level, value)
     return BlzRemoveAbilityIntegerLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilityreallevelarrayfield
 ---@param level integer
 ---@param value real
@@ -444,7 +444,7 @@ function m.removeRealLevelArrayField(whichAbility, whichField, level, value)
     return BlzRemoveAbilityRealLevelArrayField(whichAbility, whichField, level, value)
 end
 
----@param whichAbility ability
+---@param whichAbility Ability
 ---@param whichField abilitystringlevelarrayfield
 ---@param level integer
 ---@param value string
